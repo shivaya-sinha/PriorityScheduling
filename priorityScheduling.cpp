@@ -16,6 +16,21 @@ int main()
 		rm[i]=bt[i];
 
 	}
+	
+	
+	for( i=0;i<n;i++)
+	{
+		for(j=0;j<n-i-1;j++)
+		{
+			if(at[j]>at[j+1])
+			{
+				swap(&at[j],&at[j+1]);
+				swap(&bt[j],&bt[j+1]);
+				swap(&pn[j],&pn[j+1]);
+			}
+		}
+
+	}
 
 	
 	
@@ -84,7 +99,7 @@ int main()
 		tat[i]=ft[i]-at[i];
 		wt[i]=tat[i]-bt[i];
 		total_wt+=wt[i];
-		
+		total_tat+=tat[i];
 	}
 
 	printf("Process \t AT \t BT \t p \t FT \t TAT \t WT\n");
