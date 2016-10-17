@@ -3,16 +3,20 @@
 
 int main()
 {
-	int n,i,j,k;
+	int n, i, j;
+
 	/*
-	at---arrival time
-	bt--burst time
-	ft---finish time
-	tat---turn around time
-	rm---remaining time
-	finished----to check if process is finished
+        at          - arrival time
+        bt          - burst time
+        ft          - finish time
+        tat         - turn around time
+        rm          - remaining time
+        finished    - to check if process is finished
 	*/
-	int at[20],bt[20],ft[20],pn[20],tat[20],wt[20],finished[20],rm[20],priority[20];
+
+	int at[20], bt[20], ft[20], pn[20], tat[20],
+        wt[20], finished[20], rm[20], priority[20];
+
 	printf("Enter the number of processes: ");
 	scanf("%d",&n);
 
@@ -53,7 +57,9 @@ int main()
 	 total_time=at[0];
 
 
-	//while all processes are not finished, find the process with lowest ie highest priority and process it.At each interval keep checking the upcoming processes for higher priority
+	//while all processes are not finished, find the process with lowest
+	//ie highest priority and process it.At each interval keep checking
+	//the upcoming processes for higher priority
 	//total_time----total time elapsed
 	while(!all_fin)
 	{
@@ -61,7 +67,8 @@ int main()
 		flag=0;
 		for(j=0;j<n;j++)
 		{
-		   //checking for process that has arrived but not yet finished (having highest priority at that time)
+		   //checking for process that has arrived but not yet finished
+		   //(having highest priority at that time)
 		    if(at[j]<=total_time && finished[j]==0 && priority[j]<min)
 		    {
 		        min=priority[i];
@@ -113,7 +120,8 @@ int main()
 
 	float total_wt=0,total_tat=0;
 
-	//calculating total turn around time, waiting time, totat waiting time and total turn around time using basic formule
+	//calculating total turn around time, waiting time, total waiting
+	//time and total turn around time using basic formulae
 	for(i=0;i<n;i++)
 	{
 		tat[i]=ft[i]-at[i];
@@ -123,10 +131,12 @@ int main()
 	}
 
 
-	//printing arrival time, burst time, finish time, turn around time and waiting time for all processes in tabular form
+	//printing arrival time, burst time, finish time, turn around time and
+	//waiting time for all processes in tabular form
 	printf("Process \t AT \t BT \t p \t FT \t TAT \t WT\n");
 	for(i=0;i<n;i++)
-		printf("P%d \t\t %d \t %d \t %d \t\t %d \t %d \t %d\n",pn[i],at[i],bt[i],priority[i],ft[i],tat[i],wt[i]);
+		printf("P%d \t\t %d \t %d \t %d \t\t %d \t %d \t %d\n",
+               pn[i],at[i],bt[i],priority[i],ft[i],tat[i],wt[i]);
 
 	//calculating average turn around time and average waiting time
 	printf("\nAverage TAT: %f\n",total_tat/n);
