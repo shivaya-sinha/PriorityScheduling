@@ -1,4 +1,6 @@
 #include<stdio.h>
+#include<bits/stdc++.h>
+
 
 int main()
 {
@@ -11,7 +13,7 @@ int main()
 	rm---remaining time
 	finished----to check if process is finished
 	*/
-	int at[20],bt[20],ft[20],pn[20],tat[20],wt[20],finished[20],rm[20],priority[20];
+	int at[20],bt[20],ft[20],pn[20],tat[20],wt[20],finished[20],rm[20],p[20];
 	printf("Enter the number of processes: ");
 	scanf("%d",&n);
 
@@ -35,9 +37,9 @@ int main()
 		{
 			if(at[j]>at[j+1])
 			{
-				swap(&at[j],&at[j+1]);
-				swap(&bt[j],&bt[j+1]);
-				swap(&pn[j],&pn[j+1]);
+				swap(at[j],at[j+1]);
+				swap(bt[j],bt[j+1]);
+				swap(pn[j],pn[j+1]);
 			}
 		}
 
@@ -125,10 +127,9 @@ int main()
 	//printing arrival time, burst time, finish time, turn around time and waiting time for all processes in tabular form
 	printf("Process \t AT \t BT \t p \t FT \t TAT \t WT\n");
 	for(i=0;i<n;i++)
-		printf("P%d \t\t %d \t %d \t %d \t\t %d \t %d \t %d\n",pn[i],at[i],bt[i],p[i],ft[i],tat[i],wt[i]);
+		printf("P%d \t\t %d \t %d \t %d \t %d \t %d \t %d\n",pn[i],at[i],bt[i],p[i],ft[i],tat[i],wt[i]);
 
 	//calculating average turn around time and average waiting time
 	printf("\nAverage TAT: %f\n",total_tat/n);
 	printf("Average WT: %f\n",total_wt/n);
 }
-
